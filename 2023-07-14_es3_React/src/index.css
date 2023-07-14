@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btns {
+      @apply bg-black border border-white text-white font-bold p-[0.5rem] hover:bg-slate-300 cursor-pointer flex justify-center items-center flex-row
+  }
+  .pages {
+    @apply w-screen h-[calc(100vh-60px)] flex bg-black border-[2px] border-white text-white p-4
+  }
+}
