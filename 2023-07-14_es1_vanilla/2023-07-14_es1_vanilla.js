@@ -55,11 +55,8 @@ function iptHandler(){
             successForm()
             return
         }
-        else{
-            return counterLogs += 1
-            
-        }
     }
+    return counterLogs += 1
 }
 
 /* in case of succesfull login this function hides the form and creates a new div with a welcome message */
