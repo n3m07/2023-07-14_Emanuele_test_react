@@ -7,6 +7,9 @@ function App() {
   const [result, setResult]= useState('Mario Rossi e Luigi Verdi sono pari')
 
   function displayResult(){
+
+    console.log(marioScore)
+    console.log(luigiScore)
     /* console.log('castori') */
     if(Number(marioScore)> Number(luigiScore)){
       return(setResult('Mario Rossi è in vantaggio'))
