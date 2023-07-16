@@ -2,6 +2,7 @@ function $(id){
     return document.getElementById(id)
 }
 
+/* global variables */
 const formSection= $('formSection')
 const header= $('header')
 const iptUserName= $('iptUserName')
@@ -11,6 +12,7 @@ const body= $('body')
 let currentUser= ''
 let counterLogs= 1
 
+/* array that contains the info of each user */
 let arrUserData= [
     {
         userName: 'eliaspower',
@@ -24,6 +26,8 @@ let arrUserData= [
     }
 ]
 
+
+/* handler event of the 'enter' button in the form */
 btnLogIn.addEventListener('click', () => {
     //console.log('castori')
     //console.log(iptPw.value)
@@ -38,6 +42,8 @@ btnLogIn.addEventListener('click', () => {
     }
 })
 
+
+/*this function checks if the value of the password and username exist in the array; if it does it calls the function 'successForm', otherwise it increases the counter of the attempetd logins*/
 function iptHandler(){
     let user= iptUserName.value
     let pw= iptPw.value
@@ -56,6 +62,7 @@ function iptHandler(){
     }
 }
 
+/* in case of succesfull login this function hides the form and creates a new div with a welcome message */
 function successForm(){
     formSection.classList.replace('flex', 'hidden')
     let welcomeMsg= document.createElement('div')
@@ -81,10 +88,11 @@ function successForm(){
     
 }
 
+/* in case the login counter's value is higher than 3 this function shows an error message*/
 function errorForm(){
     formSection.classList.replace('flex', 'hidden')
     let errorMsg= document.createElement('div')
-    errorMsg.textContent= 'Numero massimo tentativi effettuati!!'
+    errorMsg.textContent= 'Vergogna!! non riesci nemmeno a ricordati la tua password!!'
     errorMsg.classList.add(
         'w-[80%]',
         'flex',
