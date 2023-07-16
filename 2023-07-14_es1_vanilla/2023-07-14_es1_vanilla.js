@@ -12,7 +12,7 @@ const body= $('body')
 let currentUser= ''
 let counterLogs= 1
 
-/* array that contains the info of each user */
+/* array that contains the infos of each user */
 let arrUserData= [
     {
         userName: 'eliaspower',
@@ -23,6 +23,11 @@ let arrUserData= [
         userName: 'minnie',
         pw: 'topolino',
         gender: 'female'
+    },
+    {
+        userName: 'ziopaperone',
+        pw: 'soldi',
+        gender: 'male'
     }
 ]
 
@@ -47,16 +52,21 @@ btnLogIn.addEventListener('click', () => {
 function iptHandler(){
     let user= iptUserName.value
     let pw= iptPw.value
+    let flag= false
     for(let i=0; i<arrUserData.length; i++){
         if(arrUserData[i].userName== user.trim().toLowerCase() && arrUserData[i].pw == pw.trim().toLowerCase())
         {
             //console.log('nuovo form')
             currentUser= arrUserData[i]
             successForm()
-            return
+            flag= true
+            return flag
         }
     }
-    return counterLogs += 1
+    if(flag==false){
+        return counterLogs += 1
+
+    }
 }
 
 /* in case of succesfull login this function hides the form and creates a new div with a welcome message */
@@ -89,7 +99,7 @@ function successForm(){
 function errorForm(){
     formSection.classList.replace('flex', 'hidden')
     let errorMsg= document.createElement('div')
-    errorMsg.textContent= 'Vergogna!! non riesci nemmeno a ricordati la tua password!!'
+    errorMsg.textContent= 'Vergogna!! la prossima volta scriviti la password sulla mano con il pennarello'
     errorMsg.classList.add(
         'w-[80%]',
         'flex',

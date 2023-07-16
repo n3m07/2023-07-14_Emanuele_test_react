@@ -2,10 +2,14 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+
+  /* state variable to keep track of the score of mario, luigi and the displayed message*/
   const [marioScore, setMarioScore] = useState("3");
   const [luigiScore, setLuigiScore] = useState("3");
   const [result, setResult]= useState('Mario Rossi e Luigi Verdi sono pari')
 
+
+  /* this function compaiers the score of mario and luigi and updates the message of the display according to it */
   function displayResult(){
 
     console.log(marioScore)
@@ -28,6 +32,8 @@ function App() {
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center bg-slate-300 ">
       <section className="w-[80%] h-[90vh] flex flex-col justify-center items-center gap-4 p-4 bg-blue-300">
+
+        {/* selector score mario */}
         <div className="w-full h-2/6 flex flex-col justify-start items-center gap-4">
           <label className="font-bold italic">Score (1-10): Mario Rossi</label>
           <input
@@ -42,6 +48,8 @@ function App() {
           />
           <input type="range" name="iptMarioR" id="sliderMarioR" min={1} max={10} onChange={(e) => {setMarioScore(e.target.value), displayResult()}} value={marioScore} />
         </div>
+
+        {/* selector score luigi */}
         <div className="w-full h-2/6 flex flex-col justify-start items-center gap-4">
         <label className="font-bold italic">Score (1-10): Luigi Verdi</label>
           <input
@@ -56,6 +64,8 @@ function App() {
           />
           <input type="range" name="iptLuigiV" id="sliderLuigiV" min={1} max={10} onChange={e=> {setLuigiScore(e.target.value), displayResult()}} value={luigiScore} />
         </div>
+
+        {/* display results */}
         <div className="w-full h-2/6 flex flex-col justify-center items-center bg-white font-extrabold text-xl p-4">
           {result} 
         </div>
