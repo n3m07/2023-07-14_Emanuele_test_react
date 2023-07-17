@@ -55,6 +55,7 @@ function iptHandler(){
     let flag= false
     for(let i=0; i<arrUserData.length; i++){
         if(arrUserData[i].userName== user.trim().toLowerCase() && arrUserData[i].pw == pw.trim().toLowerCase())
+        /* ASK RICCARDO WHY THE TRIM() METHOD AIN'T WORKING */
         {
             //console.log('nuovo form')
             currentUser= arrUserData[i]
@@ -73,7 +74,7 @@ function iptHandler(){
 function successForm(){
     formSection.classList.replace('flex', 'hidden')
     let welcomeMsg= document.createElement('div')
-    welcomeMsg.textContent= `${currentUser.gender== 'male' ? 'benvenuto' : 'benvenuta'} ${currentUser.userName}`
+    welcomeMsg.textContent= `${currentUser.gender== 'male' ? 'Benvenuto' : 'Benvenuta'} ${currentUser.userName}`
     welcomeMsg.classList.add(
         'w-[80%]',
         'flex',

@@ -6,29 +6,24 @@ function App() {
   /* state variable to keep track of the score of mario, luigi and the displayed message*/
   const [marioScore, setMarioScore] = useState("3");
   const [luigiScore, setLuigiScore] = useState("3");
-  const [result, setResult]= useState('Mario Rossi e Luigi Verdi sono pari')
+  let r= 'Mario Rossi e Luigi Verdi sono pari'
 
-
-  /* this function compaiers the score of mario and luigi and updates the message of the display according to it */
-  function displayResult(){
-
-    console.log(marioScore)
-    console.log(luigiScore)
-    /* console.log('castori') */
-    if(Number(marioScore)> Number(luigiScore)){
-      return(setResult('Mario Rossi è in vantaggio'))
+  
+  /* checks the values of mario and luigi and displays the result according to it */
+  if(Number(marioScore)> Number(luigiScore)){
+      r= 'Mario Rossi è in vantaggio'
     }
     else if(Number(marioScore)<Number(luigiScore)){
-      return(setResult('Luigi Verdi è in vantaggio'))
+      r= 'Luigi Verdi è in vantaggio'
     }
     else if(Number(marioScore)==Number(luigiScore)){
-      return(setResult('Mario Rossi e Luigi Verdi sono pari'))
+      r= 'Mario Rossi e Luigi Verdi sono pari'
     }
     else{
       console.log('error function displayResult')
     }
-  }
 
+    
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center bg-slate-300 ">
       <section className="w-[80%] h-[90vh] flex flex-col justify-center items-center gap-4 p-4 bg-blue-300">
@@ -44,9 +39,9 @@ function App() {
             max={10}
             className="p-2 font-bold flex justify-center items-center"
             value={marioScore}
-            onChange={e=> {setMarioScore(e.target.value), displayResult()}}
+            onChange={e=> {setMarioScore(e.target.value)}}
           />
-          <input type="range" name="iptMarioR" id="sliderMarioR" min={1} max={10} onChange={(e) => {setMarioScore(e.target.value), displayResult()}} value={marioScore} />
+          <input type="range" name="iptMarioR" id="sliderMarioR" min={1} max={10} onChange={(e) => {setMarioScore(e.target.value)}} value={marioScore} />
         </div>
 
         {/* selector score luigi */}
@@ -60,14 +55,14 @@ function App() {
             max={10}
             className="p-2 font-bold flex justify-center items-center"
             value={luigiScore}
-            onChange={e=> {setLuigiScore(e.target.value), displayResult()}}
+            onChange={e=> {setLuigiScore(e.target.value)}}
           />
-          <input type="range" name="iptLuigiV" id="sliderLuigiV" min={1} max={10} onChange={e=> {setLuigiScore(e.target.value), displayResult()}} value={luigiScore} />
+          <input type="range" name="iptLuigiV" id="sliderLuigiV" min={1} max={10} onChange={e=> {setLuigiScore(e.target.value)}} value={luigiScore} />
         </div>
 
         {/* display results */}
         <div className="w-full h-2/6 flex flex-col justify-center items-center bg-white font-extrabold text-xl p-4">
-          {result} 
+          {r} 
         </div>
       </section>
     </div>
